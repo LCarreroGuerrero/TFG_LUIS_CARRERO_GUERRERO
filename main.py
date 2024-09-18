@@ -1,22 +1,20 @@
 import customtkinter as ctk
 import tkinter
 
-app = ctk.CTk()
-ctk.set_appearance_mode("light")
-ctk.set_default_color_theme("green")
 
+""" Initializator """
+app = ctk.CTk()
 app.title("Ayuda interactiva - Google Password Manager")
 app.after(0, lambda: app.wm_state('zoomed'))
 
-
-# Main container
 content_frame = ctk.CTkFrame(app)
 content_frame.pack(fill="both", expand=True)
 
-# Views frames
 main_view = ctk.CTkFrame(content_frame)
 view_help = ctk.CTkFrame(content_frame)
 
+ctk.set_appearance_mode("light")
+ctk.set_default_color_theme("green")
 
 def show_view(view):
     for frame in [main_view, view_help]:
@@ -25,7 +23,6 @@ def show_view(view):
 
 def return_to_main_view():
     show_view(main_view)
-
 
 """ Main view content  """
 # Header
@@ -123,7 +120,6 @@ for idx, block in enumerate(process_block):
     row = idx // 3
     col = idx % 3
     block.grid(row=row, column=col, padx=10, pady=10)
-
 
 
 # Back to Main view Button    
